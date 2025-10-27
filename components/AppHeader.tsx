@@ -113,7 +113,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({
     <header className="flex h-16 flex-shrink-0 items-center justify-between border-b border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 z-30">
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
-            <span className="text-2xl">🎬</span>
+            {/* <span className="text-2xl">🎬</span> */}
             <h1 className="text-lg font-bold text-slate-800 dark:text-slate-200">CineGenie</h1>
         </div>
       </div>

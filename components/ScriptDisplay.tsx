@@ -39,9 +39,9 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({
         <h1 className="text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
           <EditableField initialValue={script.title} onSave={(v) => onUpdateField('title', v)} context="Movie Title" language={language} as="input" textClassName="text-center w-full" />
         </h1>
-        <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <div className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"> {/* This was already a div, so no change here */}
           <EditableField initialValue={script.logline} onSave={(v) => onUpdateField('logline', v)} context="Movie Logline" language={language} />
-        </p>
+        </div> 
         <div className="mt-4 flex justify-center gap-2 flex-wrap">
           {script.genre.map((g) => (
             <span key={g} className="text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2.5 py-1 rounded-full">{g}</span>
@@ -53,9 +53,9 @@ const ScriptDisplay: React.FC<ScriptDisplayProps> = ({
         <section key={act.act_number}>
           <div className="sticky top-0 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-sm z-10 py-4 -my-4 mb-4">
              <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">HỒI {act.act_number}</h2>
-             <p className="mt-1 text-slate-600 dark:text-slate-400">
+             <div className="mt-1 text-slate-600 dark:text-slate-400"> {/* Changed from <p> to <div> */}
                 <EditableField initialValue={act.summary} onSave={(v) => onUpdateField(`acts[${actIndex}].summary`, v)} context={`Summary for Act ${act.act_number}`} language={language} />
-             </p>
+             </div>
           </div>
 
           <div className="space-y-8">

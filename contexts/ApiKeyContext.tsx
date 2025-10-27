@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useMemo } from 'react';
 
 interface ApiKeyContextType {
   apiKey: string | null;
@@ -31,10 +31,12 @@ export const ApiKeyProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     setApiKeyState(key);
   };
   
-  const isApiKeySet = !!apiKey && apiKey.trim().length > 0;
+  const isApiKeySet = useMemo(() => !!apiKey && apiKey.trim().length > 0, [apiKey]);
+
+  const value = useMemo(() => ({ apiKey, setApiKey, isApiKeySet }), [apiKey, isApiKeySet]);
 
   return (
-    <ApiKeyContext.Provider value={{ apiKey, setApiKey, isApiKeySet }}>
+    <ApiKeyContext.Provider value={value}>
       {children}
     </ApiKeyContext.Provider>
   );
